@@ -2,5 +2,18 @@
 } */
 
 body {
-  font: 1.1rem, futura, sans-serif;
+  font: 1.1rem futura, sans-serif;
+  text-align: center;
+}
+
+#drum-machine {
+  background-color: #bbb;
+}
+
+#pad-section {
+  width: 270px;
+  height: 270px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
