@@ -1,5 +1,7 @@
 {
   "name": "drum-machine",
+  "homepage": ".",
+  "author": "Jon Zacks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
