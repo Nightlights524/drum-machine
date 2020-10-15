@@ -2,20 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-// function Stateless(props) {
-//   return (
-//     <div>
-//     </div>
-//   );
-// }
-
-// const Stateless = props => {
-//   return (
-//     <div>
-//     </div>
-//   );
-// }
-
 class DrumPad extends React.Component {
   constructor(props) {
     super(props);
@@ -34,9 +20,7 @@ class DrumPad extends React.Component {
     const sound = document.getElementById(this.props.keyTrigger);
     sound.currentTime = 0;
     sound.play();
-
     this.props.setDisplay(this.props.clipID);
-    // document.getElementById(this.props.keyTrigger).play();
   }
 
   handleKeyPress (event) {
