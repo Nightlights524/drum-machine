@@ -1,24 +1,60 @@
-/* html {
-} */
+html {
+  --pad-width: 80px;
+  --pad-height: 80px;
+}
 
 body {
   font: 1.1rem futura, sans-serif;
   text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#root {
+  background-color: #2e9e3b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 #drum-machine {
+  background-color: #2e9e3b;
+}
+
+#title {
   background-color: #bbb;
+  margin: 0;
+}
+
+#controls-area {
+  display: flex; 
 }
 
 #pad-section {
-  width: 270px;
-  height: 270px;
+  background-color: red;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  padding: 5px;
 }
 
 .drum-pad {
   cursor: pointer;
   outline: none;
+  width: var(--pad-width);
+  height: var(--pad-height);
+}
+
+#master-section {
+  background-color: aqua;
+  width: 300px;
+}
+
+#display {
+  background-color: #bbb;
+  width: 43%;
+  margin: 0 auto;
 }

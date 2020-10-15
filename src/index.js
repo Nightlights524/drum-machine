@@ -55,9 +55,11 @@ class DrumMachine extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayText: "HIT A BUTTON"
+      displayText: "---",
+      volume: 75
     }
     this.setDisplay = this.setDisplay.bind(this);
+    this.setVolume = this.setVolume.bind(this);
   }
   
   setDisplay (text) {
@@ -69,66 +71,87 @@ class DrumMachine extends React.Component {
     });
   }
 
+  setVolume (event) {
+    this.setState({volume: event.target.value});
+    this.setDisplay("Vol: " + event.target.value.toString());
+  }
+
   render() {  
+    const clips = Array.from(document.getElementsByClassName('clip'));
+    clips.forEach(clip => {
+      clip.volume = this.state.volume * 0.01;
+    });
+
     return (
       <div id="drum-machine">
         <h1 id="title">Drum Machine</h1>
-        <h2 id="display">{this.state.displayText}</h2>
-        <div id="pad-section">
-          <DrumPad 
-            clipSource="https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"
-            keyTrigger="Q" 
-            clipID={"Kick"}
-            setDisplay={this.setDisplay}
-          />
-          <DrumPad
-            clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
-            keyTrigger="W"
-            clipID={"808"}
-            setDisplay={this.setDisplay}
-          />
-          <DrumPad
-            clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
-            keyTrigger="E"
-            clipID={"Snare1"}
-            setDisplay={this.setDisplay}
-          />
-          <DrumPad
-            clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
-            keyTrigger="A"
-            clipID={"Snare2"}
-            setDisplay={this.setDisplay}
-          />
-          <DrumPad
-            clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
-            keyTrigger="S"
-            clipID={"Clap"}
-            setDisplay={this.setDisplay}
-          />
-          <DrumPad
-            clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
-            keyTrigger="D"
-            clipID={"Hi-Hat"}
-            setDisplay={this.setDisplay}
-          />
-          <DrumPad
-            clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
-            keyTrigger="Z"
-            clipID={"Crash1"}
-            setDisplay={this.setDisplay}
-          />
-          <DrumPad
-            clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
-            keyTrigger="X"
-            clipID={"Crash2"}
-            setDisplay={this.setDisplay}
-          />
-          <DrumPad
-            clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
-            keyTrigger="C"
-            clipID={"Ride"}
-            setDisplay={this.setDisplay}
-          />
+        <div id="controls-area">
+          <div id="pad-section">
+            <DrumPad 
+              clipSource="https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"
+              keyTrigger="Q" 
+              clipID={"Kick"}
+              setDisplay={this.setDisplay}
+              />
+            <DrumPad
+              clipSource="https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"
+              keyTrigger="W"
+              clipID={"808"}
+              setDisplay={this.setDisplay}
+              />
+            <DrumPad
+              clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
+              keyTrigger="E"
+              clipID={"Snare1"}
+              setDisplay={this.setDisplay}
+              />
+            <DrumPad
+              clipSource="https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3"
+              keyTrigger="A"
+              clipID={"Side-Stick"}
+              setDisplay={this.setDisplay}
+              />
+            <DrumPad
+              clipSource="https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3"
+              keyTrigger="S"
+              clipID={"Shaker"}
+              setDisplay={this.setDisplay}
+              />
+            <DrumPad
+              clipSource="https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3"
+              keyTrigger="D"
+              clipID={"Hi-Hat"}
+              setDisplay={this.setDisplay}
+              />
+            <DrumPad
+              clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
+              keyTrigger="Z"
+              clipID={"Crash1"}
+              setDisplay={this.setDisplay}
+              />
+            <DrumPad
+              clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
+              keyTrigger="X"
+              clipID={"Crash2"}
+              setDisplay={this.setDisplay}
+              />
+            <DrumPad
+              clipSource="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
+              keyTrigger="C"
+              clipID={"Ride"}
+              setDisplay={this.setDisplay}
+              />
+          </div>
+          <div id="master-section">
+            <h2 id="display">{this.state.displayText}</h2>
+            <h4>Volume</h4>
+            <input 
+              type="range"
+              value={this.state.volume}
+              onChange={this.setVolume}
+            >
+            </input>
+          </div>
         </div>
       </div>
     );
