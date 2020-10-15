@@ -55,7 +55,7 @@ class DrumMachine extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayText: "---",
+      displayText: "Ready...",
       volume: 75
     }
     this.setDisplay = this.setDisplay.bind(this);
@@ -73,7 +73,7 @@ class DrumMachine extends React.Component {
 
   setVolume (event) {
     this.setState({volume: event.target.value});
-    this.setDisplay("Vol: " + event.target.value.toString());
+    this.setDisplay("Volume: " + event.target.value.toString());
   }
 
   render() {  
@@ -84,7 +84,7 @@ class DrumMachine extends React.Component {
 
     return (
       <div id="drum-machine">
-        <h1 id="title">Drum Machine</h1>
+        <p id="title">Drum Machine</p>
         <div id="controls-area">
           <div id="pad-section">
             <DrumPad 
@@ -143,9 +143,10 @@ class DrumMachine extends React.Component {
               />
           </div>
           <div id="master-section">
-            <h2 id="display">{this.state.displayText}</h2>
-            <h4>Volume</h4>
+            <p id="display">{this.state.displayText}</p>
+            <p id="volume-label">Volume</p>
             <input 
+              id="volume-slider"
               type="range"
               value={this.state.volume}
               onChange={this.setVolume}
