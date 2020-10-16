@@ -144,14 +144,16 @@ class DrumMachine extends React.Component {
           </div>
           <div id="master-section">
             <p id="display">{this.state.displayText}</p>
-            <p id="volume-label">Volume</p>
-            <input 
-              id="volume-slider"
-              type="range"
-              value={this.state.volume}
-              onChange={this.setVolume}
-            >
-            </input>
+            <div id="slider-area">
+              <p id="volume-label">Volume ^ or v</p>
+              <input 
+                id="volume-slider"
+                type="range"
+                value={this.state.volume}
+                onChange={this.setVolume}
+                >
+              </input>
+            </div>
           </div>
         </div>
       </div>
