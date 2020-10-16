@@ -150,9 +150,8 @@ class DrumMachine extends React.Component {
                 id="volume-slider"
                 type="range"
                 value={this.state.volume}
-                onChange={this.setVolume}
-                >
-              </input>
+                onChange={this.setVolume} 
+              />
             </div>
           </div>
         </div>
