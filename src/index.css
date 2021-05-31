@@ -69,6 +69,7 @@ body {
   outline: none;
   box-sizing: border-box;
   font-size: 5vw;
+  border-radius: 0;
 }
 
 #master-section {
@@ -107,18 +108,18 @@ body {
   }
 
   #controls-area {
-    flex-direction: row; 
+    flex-direction: row;
   }
 
   #pad-section {
     width: 50%;
     height: 100%;
   }
-  
+
   .drum-pad {
     font-size: 1.3rem;
   }
-  
+
   #master-section {
     width: 50%;
     height: 100%;
