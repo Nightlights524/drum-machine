@@ -1,0 +1,218 @@
+.drumMachine {
+  font: 1.4rem futura, sans-serif;
+  text-align: center;
+  background-color: #888;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  max-width: 800px;
+  border: 3px solid #000;
+  border-radius: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.title {
+  background-color: #bbb;
+  margin: 0;
+  padding: 0.5rem;
+  vertical-align: middle;
+}
+
+.controlsArea {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.padSection {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.padSection > div {
+  background: black;
+  padding: 5px;
+}
+
+.padSection > div::before {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+}
+
+.drumPad {
+  cursor: pointer;
+  box-sizing: border-box;
+  border: none;
+  background-color: #eee;
+  transition: 0.1s;
+  border-radius: 3px;
+  padding: 6px;
+  min-height: 3.5em;
+}
+
+.drumPad:hover {
+  background-color: #ddd;
+}
+
+.drumPad:active {
+  background-color: #eee;
+}
+
+.drumPad > p {
+  margin: 0;
+}
+
+.clipLabel {
+  font-size: 5vw;
+}
+
+.keyTriggerLabel {
+  font-size: 3.5vw;
+}
+
+.masterSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  box-sizing: border-box;
+}
+
+.display {
+  font-size: 1.2rem;
+  background-color: #bbb;
+  width: 80%;
+  margin: 10px auto;
+  padding: 5px;
+}
+
+.volumeLabel {
+  font-size: 1rem;
+  margin: 0;
+  padding: 10px 0px 0px 0px;
+}
+
+.volumeSlider {
+  cursor: pointer;
+  width: 80%;
+  margin: 0 auto 26px auto;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+.volumeSlider::-webkit-slider-runnable-track {
+  background: #eee;
+  border: 0;
+  border-radius: 6.2px;
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+}
+.volumeSlider::-webkit-slider-thumb {
+  margin-top: -10.5px;
+  width: 13px;
+  height: 29px;
+  background: #0602ff;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+.volumeSlider:focus::-webkit-slider-runnable-track {
+  background: #ccc;
+}
+.volumeSlider::-moz-range-track {
+  background: #eee;
+  border: 0;
+  border-radius: 6.2px;
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+}
+.volumeSlider::-moz-range-thumb {
+  width: 13px;
+  height: 29px;
+  background: #0602ff;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.volumeSlider:focus::-moz-range-track {
+  background: #ccc;
+}
+
+.volumeSlider::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 11.5px 0;
+  color: transparent;
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+}
+.volumeSlider::-ms-fill-lower {
+  background: #eee;
+  border: 0;
+  border-radius: 12.4px;
+}
+.volumeSlider::-ms-fill-upper {
+  background: #eee;
+  border: 0;
+  border-radius: 12.4px;
+}
+.volumeSlider::-ms-thumb {
+  width: 13px;
+  height: 29px;
+  background: #0602ff;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 0px;
+}
+.volumeSlider:focus::-ms-fill-lower {
+  background: #eee;
+}
+.volumeSlider:focus::-ms-fill-upper {
+  background: #ccc;
+}
+@supports (-ms-ime-align: auto) {
+  .volumeSlider {
+    margin: 0;
+  }
+}
+
+@media (min-width: 400px) {
+  .clipLabel {
+    font-size: 1.3rem;
+  }
+
+  .keyTriggerLabel {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 650px) {
+  .drumMachine {
+    min-height: 450px;
+  }
+
+  .controlsArea {
+    flex-direction: row;
+  }
+
+  .padSection {
+    width: 60%;
+  }
+
+  .masterSection {
+    width: 40%;
+  }
+}
